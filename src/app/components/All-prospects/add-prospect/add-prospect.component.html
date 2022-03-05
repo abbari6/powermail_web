@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Add new Prospects</h1>
+
+<div mat-dialog-content>
+
+  <form [formGroup]="productForm">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Label Name</mat-label>
+      <input formControlName="labelName" matInput placeholder="e.g John Doe">
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+      <mat-label>Label Description</mat-label>
+      <textarea formControlName="labelDescription" matInput placeholder="e.g Add some Description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Prospected Labels</mat-label>
+      <input formControlName="prospectedLabelled" matInput placeholder="e.g Label">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Out Reach Campagins</mat-label>
+      <input formControlName="outreachCampagins" matInput placeholder="e.g John Doe">
+    </mat-form-field>
+
+  </form>
+
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button mat-raised-button color="primary" (click)="addProduct()">{{actionBtn}}</button>
+</div>

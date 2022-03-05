@@ -1,3 +1,5 @@
+import { AddProspectComponent } from './components/All-prospects/add-prospect/add-prospect.component';
+import { ProspectComponent } from './components/All-prospects/prospect/prospect.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddContactComponent } from './components/All-contacts/add-contact/add-contact.component';
@@ -28,6 +30,16 @@ const routes: Routes = [
   {
     path:"add", component:AddContactComponent , 
      canActivate:[AuthGuard]
+  },
+  {
+    path: 'prospect',
+    component: ProspectComponent,
+    //  canActivate:[AuthGuard]
+  },
+  {
+    path: 'addprospect',
+    component: AddProspectComponent,
+    //  canActivate:[AuthGuard]
   }
 ];
 

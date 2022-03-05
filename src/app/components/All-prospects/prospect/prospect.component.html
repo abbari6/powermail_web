@@ -1,0 +1,80 @@
+<app-inner-navbar></app-inner-navbar>
+
+<mat-toolbar>
+    <h1 style="margin-right: 30%;">Prospected Labels</h1>
+    <button mat-flat-button color="primary" (click)="openDialog()" style="margin-right: 12px;">Add Labels </button>
+</mat-toolbar>
+
+
+<div class="container-fluid">
+    <mat-form-field appearance="standard">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Eg. John Doe" #input>
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+        <mat-table [dataSource]="dataSource" matSort>
+
+            <ng-container matColumnDef="id" hidden>
+                <mat-header-cell *matHeaderCellDef mat-sort-header>S-No</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="labelName">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Label Name</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.labelName}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="labelDescription">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Label Description</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.labelDescription}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="prospectedLabelled">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Prospected Labelled</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.prospectedLabelled}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="outreachCampagins">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Out Reach Campagins</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.outreachCampagins}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <button mat-icon-button (click)="editField(row)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+
+                    <button mat-icon-button color="warn" (click)="deleteProduct(row.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="loading">
+                <mat-footer-cell *matFooterCellDef colspan="6">
+                    Loading data...
+                </mat-footer-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="noData">
+                <mat-footer-cell *matFooterCellDef colspan="6">
+                    No data...
+                </mat-footer-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':dataSource!=null}"></mat-footer-row>
+
+            <!-- import hide css in style.css    -->
+            <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':(dataSource!=null) }"></mat-footer-row>
+        </mat-table>
+
+        <mat-paginator [pageSizeOptions]="[5,10,25,100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+    </div>
+</div>
+
+<app-footer></app-footer>

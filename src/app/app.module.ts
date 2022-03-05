@@ -1,3 +1,5 @@
+import { AddProspectComponent } from './components/All-prospects/add-prospect/add-prospect.component';
+import { ProspectComponent } from './components/All-prospects/prospect/prospect.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -39,6 +41,8 @@ import { AccountsComponent } from './components/accounts/accounts.component';
     LoginComponent,
     RegisterComponent,
     AccountsComponent,
+    ProspectComponent,
+    AddProspectComponent
     
   ],
   imports: [
