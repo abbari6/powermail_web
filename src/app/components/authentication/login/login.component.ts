@@ -1,7 +1,6 @@
-// import { HttpHeaderResponse } from '@angular/common/http';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import Swal from 'sweetalert2'
 
-// import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -19,7 +18,17 @@ export class LoginComponent implements OnInit {
   userId = null;
   name = null;
   isSignedIn: boolean;
-
+   Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
@@ -36,6 +45,7 @@ export class LoginComponent implements OnInit {
   {}
 
   ngOnInit(): void {}
+  
 
   loginUser() {
     this.auth
@@ -43,6 +53,10 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         (data: HttpResponse<any>) => {
+         this.Toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully'
+          })
           this.responseHandler(data);
         },
         (error) => {
