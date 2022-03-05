@@ -1,18 +1,18 @@
 <mat-toolbar fxLayout="row" color="primary">
   <span fxFlex>Powermail</span>
 
-  <button
-    mat-button
-    fxHide.xs
-    routerLink="/dashboard"
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }"
-  >
+  <button mat-button fxHide.xs routerLink="/dashboard" routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }">
     Dashboard
   </button>
   <button mat-button fxHide.xs routerLink="/contacts" routerLinkActive="active">
     Contacts
   </button>
+
+  <button mat-button fxHide.xs routerLink="/prospect" routerLinkActive="active">
+    Prospects Labels
+  </button>
+
   <button mat-button fxHide.xs>Outreach</button>
   <button mat-button fxHide.xs>Settings</button>
   <button mat-button fxHide.xs [matMenuTriggerFor]="userMenu">{{name}}<mat-icon>keyboard_arrow_down</mat-icon>
@@ -37,5 +37,5 @@
 </mat-toolbar>
 <mat-menu #userMenu="matMenu">
   <button mat-menu-item>profile</button>
-  <button mat-menu-item (click)="logout()" >logout</button>
+  <button mat-menu-item (click)="logout()">logout</button>
 </mat-menu>

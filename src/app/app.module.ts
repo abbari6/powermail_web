@@ -1,3 +1,4 @@
+import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
 import { AddProspectComponent } from './components/All-prospects/add-prospect/add-prospect.component';
 import { ProspectComponent } from './components/All-prospects/prospect/prospect.component';
 import { NgModule } from '@angular/core';
@@ -42,7 +43,8 @@ import { AccountsComponent } from './components/accounts/accounts.component';
     RegisterComponent,
     AccountsComponent,
     ProspectComponent,
-    AddProspectComponent
+    AddProspectComponent,
+    ForgotPasswordComponent,
     
   ],
   imports: [
