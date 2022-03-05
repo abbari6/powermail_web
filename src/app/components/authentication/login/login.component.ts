@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
   responseHandler(response) {
     this.userToken = response.headers.get('Authorization');
     this.localStorage.handleToken(this.userToken);
-    console.log(this.userToken);
+    // console.log(this.userToken);
     this.userFirstname = response.body.firstname;
     this.localStorage.handleName(this.userFirstname);
     this.userEmail = response.body.email;
