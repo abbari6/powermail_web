@@ -1,0 +1,17 @@
+.main{
+    background-color: white;
+      
+}
+
+.details{
+    margin-top: 60px;
+   
+}
+.details {
+  padding: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+.details p {
+    font-size: 25px;
+    line-height: normal;
+}

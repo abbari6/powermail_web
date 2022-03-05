@@ -1,0 +1,47 @@
+<!-- <h1 class="text-center" >Edit Contact</h1> -->
+<div class="container-fluid">
+ 
+    <form  [formGroup]="contactForm" >
+
+      <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input formControlName="firstname" matInput placeholder="firstname">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input formControlName="lastname" matInput placeholder="lastname">
+        </mat-form-field>
+        <mat-form-field appearance="outline" [hidden]="true">
+          <mat-label>user email</mat-label>
+          <input formControlName="user_id" matInput placeholder="lastname">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput placeholder="email">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Role</mat-label>
+          <input formControlName="role" matInput placeholder="role">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Company</mat-label>
+          <input formControlName="company" matInput placeholder="Company">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Label</mat-label>
+          <input formControlName="label" matInput placeholder="Label">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Label-2</mat-label>
+          <input formControlName="label2" matInput placeholder="label-2">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Label-3</mat-label>
+          <input formControlName="label3" matInput placeholder="label-3">
+        </mat-form-field>
+        <div mat-dialog-actions [align]="'end'" >
+          <button mat-raised-button color="warn" mat-dialog-close >Close</button>
+          <button mat-raised-button color="primary" (click)="addContact()" >{{actionBtn}}</button>
+            </div>
+      </form>
+</div>
