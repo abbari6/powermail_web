@@ -1,25 +1,28 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+  UrlTree,
+} from '@angular/router';
 import { Observable } from 'rxjs';
-import { TokenStorageService } from '../token/token-storage.service'; 
+import { TokenStorageService } from '../token/token-storage.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor( private token: TokenStorageService, private router: Router ) {}
+  constructor(private token: TokenStorageService, private router: Router) {}
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(!this.token.isLoggedIn()){
-        this.router.navigate(['/login'])
+    state: RouterStateSnapshot
+  ): boolean {
+    if (!this.token.isLoggedIn()) {
+      this.router.navigate(['/login']);
 
-        return false
-      
-      }
-      return true
-      
+      return false;
+    }
+    return this.token.isLoggedIn();
   }
- 
-  
 }
