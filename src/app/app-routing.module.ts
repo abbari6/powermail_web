@@ -1,3 +1,5 @@
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ForgotPasswordComponent } from './components/authentication/forgot-password/forgot-password.component';
 import { AddProspectComponent } from './components/All-prospects/add-prospect/add-prospect.component';
 import { ProspectComponent } from './components/All-prospects/prospect/prospect.component';
 import { NgModule } from '@angular/core';
@@ -21,15 +23,15 @@ const routes: Routes = [
   }
   ,{
     path:"contacts", component: ContactsComponent, 
-    canActivate:[AuthGuard]
+    //canActivate:[AuthGuard]
   },
   {
     path:"dashboard", component:DashboardComponent ,  
-    canActivate:[AuthGuard]
+    //canActivate:[AuthGuard]
   },
   {
     path:"add", component:AddContactComponent , 
-     canActivate:[AuthGuard]
+     //canActivate:[AuthGuard]
   },
   {
     path: 'prospect',
@@ -40,6 +42,13 @@ const routes: Routes = [
     path: 'addprospect',
     component: AddProspectComponent,
     //  canActivate:[AuthGuard]
+  },{
+    path: 'forgot-password',
+    component: ForgotPasswordComponent
+  },
+  { 
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 
