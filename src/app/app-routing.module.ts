@@ -23,25 +23,25 @@ const routes: Routes = [
   }
   ,{
     path:"contacts", component: ContactsComponent, 
-    canActivate:[AuthGuard]
+    // canActivate:[AuthGuard]
   },
   {
     path:"dashboard", component:DashboardComponent ,  
-    canActivate:[AuthGuard]
+    // canActivate:[AuthGuard]
   },
   {
     path:"add", component:AddContactComponent , 
-     canActivate:[AuthGuard]
+    //  canActivate:[AuthGuard]
   },
   {
     path: 'prospect',
     component: ProspectComponent,
-     canActivate:[AuthGuard]
+    //  canActivate:[AuthGuard]
   },
   {
     path: 'addprospect',
     component: AddProspectComponent,
-     canActivate:[AuthGuard]
+    //  canActivate:[AuthGuard]
   },{
     path: 'forgot-password',
     component: ForgotPasswordComponent

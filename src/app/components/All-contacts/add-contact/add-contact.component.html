@@ -2,7 +2,7 @@
 <div class="container-fluid">
  
     <form  [formGroup]="contactForm" >
-
+      <h1>  {{actionHeading}}  </h1>
       <mat-form-field appearance="outline">
           <mat-label>First Name</mat-label>
           <input formControlName="firstname" matInput placeholder="firstname">
@@ -27,20 +27,10 @@
           <mat-label>Company</mat-label>
           <input formControlName="company" matInput placeholder="Company">
         </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Label</mat-label>
-          <input formControlName="label" matInput placeholder="Label">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Label-2</mat-label>
-          <input formControlName="label2" matInput placeholder="label-2">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Label-3</mat-label>
-          <input formControlName="label3" matInput placeholder="label-3">
-        </mat-form-field>
-        <div mat-dialog-actions [align]="'end'" >
+       
+        <div mat-dialog-actions >
           <button mat-raised-button color="warn" mat-dialog-close >Close</button>
+          <span style="flex: 1 1 auto" ></span>
           <button mat-raised-button color="primary" (click)="addContact()" >{{actionBtn}}</button>
             </div>
       </form>

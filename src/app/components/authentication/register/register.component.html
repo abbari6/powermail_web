@@ -1,80 +1,123 @@
 <app-navbar></app-navbar>
 
 <div class="background">
-    <div class="bootstrap-wrapper">
-        <div class="container mt ">
-          <div class="row">
-            <div class="col-md-6 offset-md-3">
-              <mat-card>
-                <form [formGroup]="registerForm" (ngSubmit)="registerUser()"  *ngIf="!isSuccessful" >
-                  <h1 class="text-center">Register Here..</h1>
-                  <div *ngIf="errors?.name" class="alert alert-danger mt-3">
-                    {{ errors?.name }}
-                  </div>
-                  <div *ngIf="errors?.email" class="alert alert-danger mt-3">
-                    {{ errors?.email }}
-                  </div>
-                  <div *ngIf="errors?.password" class="alert alert-danger mt-3">
-                      {{ errors?.password }}
-                  </div>
-                    <mat-form-field appearance="outline"  [hidden]="true" >
-                      <mat-label>Full Name</mat-label>
-                      <input formControlName="creation_id" matInput  required>
-                      <mat-error>Please enter valid name</mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline"  >
-                      <mat-label>First Name</mat-label>
-                      <input formControlName="firstname" matInput placeholder="Enter first name" required>
-                      <mat-error>Please enter valid name</mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline"  >
-                      <mat-label>Last Name</mat-label>
-                      <input formControlName="lastname" matInput placeholder="Enter last name" required>
-                      <mat-error>Please enter valid name</mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                      <mat-label>Enter your email</mat-label>
-                      <input formControlName="email" matInput placeholder="pat@example.com" >
-                      <mat-error >Not a valid Email id</mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                      
-                      <mat-label>Phone number</mat-label>
-                      <input formControlName="mobile" matInput placeholder="12 digit with country code" required>
-                      <mat-error>Enter valid number</mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                      <mat-label>Company Name</mat-label>
-                      <input formControlName="company" matInput placeholder="Enter company name" >
-                       <mat-error >Company name is required</mat-error>
-                    </mat-form-field>
-                  
-                    <mat-form-field appearance="outline">
-                      <mat-label>Enter your password</mat-label>
-                      <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
-                      <mat-error>Min 8 character password is required</mat-error>
-                      <button class="pass" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                        [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                       
-                      </button>
-                    </mat-form-field> <br>
-                    <input type="hidden" value="web" name="signup_mode"/>
-                    <button  mat-raised-button color="primary" class="register " >Register</button><br>
-                    <a  routerLink="/login" mat-button color="primary">Registered? Login</a>
-                   </form>
-                  <div class="alert alert-success confirmation " *ngIf="isSuccessful">
-                    Your registration is successful! Kindly varify your email 
-                  </div>
-              </mat-card>
-      
+  <div class="bootstrap-wrapper">
+    <div class="container mt">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <mat-card>
+            <form
+              [formGroup]="registerForm"
+              (ngSubmit)="registerUser()"
+              *ngIf="!isSuccessful"
+            >
+              <h1 class="text-center">Register Here..</h1>
+              <div *ngIf="errors?.name" class="alert alert-danger mt-3">
+                {{ errors?.name }}
+              </div>
+              <div *ngIf="errors?.email" class="alert alert-danger mt-3">
+                {{ errors?.email }}
+              </div>
+              <div *ngIf="errors?.password" class="alert alert-danger mt-3">
+                {{ errors?.password }}
+              </div>
+              <mat-form-field appearance="outline" [hidden]="true">
+                <input formControlName="creation_id" matInput required />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Enter your email</mat-label>
+                <input
+                  formControlName="email"
+                  matInput
+                  placeholder="pat@example.com"
+                />
+                <mat-error>Not a valid Email id</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input
+                  formControlName="firstname"
+                  matInput
+                  placeholder="Enter first name"
+                  required
+                />
+                <mat-error>Please enter valid name</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input
+                  formControlName="lastname"
+                  matInput
+                  placeholder="Enter last name"
+                  required
+                />
+                <mat-error>Please enter valid name</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Phone number</mat-label>
+                <input
+                  formControlName="mobile"
+                  matInput
+                  placeholder="12 digit with country code"
+                />
+                <mat-error>Enter valid number</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Company Name</mat-label>
+                <input
+                  formControlName="company"
+                  matInput
+                  placeholder="Enter company name"
+                />
+                <mat-error>Company name is required</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline" [hidden]="true">
+                <mat-label>Account type</mat-label>
+                <input
+                  formControlName="accounttype"
+                  matInput
+                  placeholder="Enter company name"
+                />
+                <mat-error>Company name is required</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Enter your password</mat-label>
+                <input
+                  formControlName="password"
+                  matInput
+                  [type]="hide ? 'password' : 'text'"
+                  required
+                />
+                <mat-error>Min 8 character password is required</mat-error>
+                <button
+                  class="pass"
+                  mat-icon-button
+                  matSuffix
+                  (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide"
+                >
+                  <mat-icon>{{
+                    hide ? "visibility_off" : "visibility"
+                  }}</mat-icon>
+                </button>
+              </mat-form-field>
+              <br />
+              <input type="hidden" value="web" name="signup_mode" />
+              <button mat-raised-button color="primary" class="register">
+                Register</button
+              ><br />
+              <a routerLink="/login" mat-button color="primary"
+                >Registered? Login</a
+              >
+            </form>
+            <div class="alert alert-success confirmation" *ngIf="isSuccessful">
+              Your registration is successful! Kindly varify your email
             </div>
-          </div>
+          </mat-card>
         </div>
       </div>
     </div>
-    <h1>Angular Sweetalert2 Examples - ItSolutionstuff.com</h1>
-  
-<button (click)="simpleAlert()">Simple Alert</button>
-<button (click)="alertWithSuccess()">Alert with Success</button>
-<button (click)="confirmBox()">Confirm Box</button>
+  </div>
+</div>

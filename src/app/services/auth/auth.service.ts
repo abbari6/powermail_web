@@ -4,7 +4,7 @@ import { map, mergeMap, Observable } from 'rxjs';
 import { EmailValidator } from '@angular/forms';
 import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
 
-const AUTH_API = 'https://app.alfamindstech.com/powermail-0.0.1/users/';
+const AUTH_API = 'https://app.alfamindstech.com/powermail-dev/users/';
 // const httpOptions = {
 //   headers: new HttpHeaders({
 //     'Content-Type': 'application/json',

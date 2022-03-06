@@ -45,7 +45,6 @@ displayedColumns: string[] = ['id','firstname', 'lastname','email','company','ro
     
     this.dialog.open(AddContactComponent,{
          width:'30%',
-         height:'90%'
   }).afterClosed().subscribe(val=>{
     if(val==='save'){
       this.getContactUsers();
@@ -56,7 +55,6 @@ displayedColumns: string[] = ['id','firstname', 'lastname','email','company','ro
   editContact(row:any){
     this.dialog.open(AddContactComponent,{
       width:'30%',
-      height:'90%',
       data:row
     }).afterClosed().subscribe(val=>{
       if(val==='update'){

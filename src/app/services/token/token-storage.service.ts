@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, LOCALE_ID } from '@angular/core';
 import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
@@ -9,7 +9,27 @@ export class TokenStorageService {
     register: 'http://localhost:8000/api/auth/register',
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
+
+  name: any;
+  email: any;
+  token: any;
+
+  handleuser(userObj) {
+    this.token = userObj.headers.get('Authorization');
+    // console.log(this.token);
+    localStorage.setItem('user', JSON.stringify(userObj));
+    this.name = userObj.body.firstname;
+    console.log(this.name);
+  }
+
+  getUser() {
+    var user = JSON.parse(localStorage.getItem('user'));
+    console.log(user);
+    var email = user.body.email;
+    // console.log();
+  }
 
   handleUserEmail(userId) {
     localStorage.setItem('userid', userId);

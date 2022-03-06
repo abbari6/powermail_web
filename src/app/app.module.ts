@@ -22,6 +22,7 @@ import { LoginComponent } from './components/authentication/login/login.componen
 import { RegisterComponent } from './components/authentication/register/register.component';
 import { AuthInterceptor } from './services/intercepter/auth.interceptor';
 import { AccountsComponent } from './components/authentication/accounts/accounts.component';
+import { SettingsNavComponent } from './components/navbars/settings-nav/settings-nav.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AccountsComponent } from './components/authentication/accounts/accounts
     ProspectComponent,
     AddProspectComponent,
     ForgotPasswordComponent,
+    SettingsNavComponent,
   ],
   imports: [
     BrowserModule,

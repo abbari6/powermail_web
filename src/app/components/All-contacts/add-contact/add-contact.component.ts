@@ -10,7 +10,8 @@ import { TokenStorageService } from 'src/app/services/token/token-storage.servic
 })
 export class AddContactComponent implements OnInit {
   contactForm!: FormGroup;
-  actionBtn: string = 'save';
+  actionBtn: string = 'Save';
+  actionHeading: string = 'Add new Contact'
   userId: any;
   constructor(
     private http: ContactsService,
@@ -38,6 +39,7 @@ export class AddContactComponent implements OnInit {
     });
     if (this.editData) {
       this.actionBtn = 'Update';
+      this.actionHeading = "Update Contact"
       this.contactForm.controls['firstname'].setValue(this.editData.firstname);
       this.contactForm.controls['lastname'].setValue(this.editData.lastname);
       this.contactForm.controls['company'].setValue(this.editData.company);
@@ -69,7 +71,7 @@ export class AddContactComponent implements OnInit {
   updateContact() {
 
     this.http
-      .putContact(this.editData.id , this.editData)
+      .putContact(this.editData.id)
       .subscribe({
         next: (res) => {
           alert('Contact updated succesfully');
