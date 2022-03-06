@@ -5,11 +5,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import {
-  GoogleLoginProvider,
-  FacebookLoginProvider
-} from 'angularx-social-login';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -26,12 +21,12 @@ import { AddContactComponent } from './components/All-contacts/add-contact/add-c
 import { LoginComponent } from './components/authentication/login/login.component';
 import { RegisterComponent } from './components/authentication/register/register.component';
 import { AuthInterceptor } from './services/intercepter/auth.interceptor';
-import { AccountsComponent } from './components/accounts/accounts.component';
+import { AccountsComponent } from './components/authentication/accounts/accounts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-   
+
     DashboardComponent,
     FooterComponent,
     NavbarComponent,
@@ -45,7 +40,6 @@ import { AccountsComponent } from './components/accounts/accounts.component';
     ProspectComponent,
     AddProspectComponent,
     ForgotPasswordComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -56,30 +50,15 @@ import { AccountsComponent } from './components/accounts/accounts.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    SocialLoginModule
-
-
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true
-  },
-{
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(
-              '743096340326-764drhpcc35foboeih9on1hu9ahicfkj.apps.googleusercontent.com'
-            )
-          }
-        ]
-      } as SocialAuthServiceConfig,
-    }],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
-  entryComponents:[AddContactComponent]
+  entryComponents: [AddContactComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -71,7 +71,7 @@ export class ProspectComponent implements OnInit {
         this.dataSource.sort = this.sort;
       },
       error: (err) => {
-        alert('error');
+       // alert('error');
       },
     });
   }

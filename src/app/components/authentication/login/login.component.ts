@@ -60,7 +60,9 @@ export class LoginComponent implements OnInit {
           this.responseHandler(data);
         },
         (error) => {
-          this.loading = false;
+          Swal.fire('wrong credentials!!', 'Either email or password is incorrect', 'error')
+         console.log(error.error);
+         
         }
       );
   }

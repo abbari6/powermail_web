@@ -9,21 +9,15 @@ export class TokenStorageService {
     register: 'http://localhost:8000/api/auth/register',
   };
 
-  constructor(private router: Router) {
-    console.log(this.getUserid());
-    console.log(this.getname());
-      console.log(this.getToken());
-      
-  }
+  constructor(private router: Router) {}
 
   handleUserEmail(userId) {
     localStorage.setItem('userid', userId);
   }
-  handleName(name){
+  handleName(name) {
     localStorage.setItem('name', name);
   }
-  getname()
-  {
+  getname() {
     return localStorage.getItem('name');
   }
   getUserid() {
@@ -37,7 +31,6 @@ export class TokenStorageService {
   getToken() {
     return localStorage.getItem('auth_token');
   }
-  
 
   // Verify the token
   // isValidToken() {
@@ -63,26 +56,21 @@ export class TokenStorageService {
   //   return JSON.parse(atob(jwtPayload));
   // }
 
-
-
   // User state based on valid token
   // isLoggedIn() {
   //  if(!this.getToken){
   //    return true;
-    
-     
+
   //  }
   //  else{
   //    return false
   //  }
-  
+
   // }
 
-isLoggedIn(){
-  return this.getToken() !==null;
-}
-
-
+  isLoggedIn() {
+    return this.getToken() !== null;
+  }
 
   // Remove token
   removeToken() {

@@ -69,7 +69,7 @@ export class AddContactComponent implements OnInit {
   updateContact() {
 
     this.http
-      .putContact(this.editData.id)
+      .putContact(this.editData.id , this.editData)
       .subscribe({
         next: (res) => {
           alert('Contact updated succesfully');

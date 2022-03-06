@@ -24,8 +24,8 @@ addContact(data:any){
   return this.http.post(Contact_api +'addContact',data);
 }
 //update contact
-putContact( id:number){
-  return this.http.put(Contact_api+ 'updatecontact/' +id , id)
+putContact( id:number , data:any){
+  return this.http.put(Contact_api+ 'updatecontact'+id , JSON.stringify(data))
 }
 //delete contact 
 deleteContact( id:number){
